@@ -173,8 +173,8 @@ export default function ContactPage() {
               <div>
                 <h3 className="font-semibold text-primary mb-2">Response Time</h3>
                 <p className="text-muted-foreground">
-                  I typically respond to emails within 24 hours. For urgent data infrastructure issues, please mention
-                  "URGENT" in the subject line.
+                  {`I typically respond to emails within 24 hours. For urgent data infrastructure issues, please mention
+                  "URGENT" in the subject line.`}
                 </p>
               </div>
               <div>
