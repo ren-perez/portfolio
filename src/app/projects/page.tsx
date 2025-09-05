@@ -219,12 +219,12 @@ export default function ProjectsPage() {
           <Card className="bg-card/60 backdrop-blur-sm border-border/20 p-8">
             <h2 className="text-2xl sm:text-3xl font-bold mb-4">Ready to Build Your Next Data Platform?</h2>
             <p className="text-muted-foreground mb-6 text-pretty">
-              Let's discuss how I can help you build scalable data pipelines that deliver reliable insights and drive
-              business impact.
+              {`Let's discuss how I can help you build scalable data pipelines that deliver reliable insights and drive
+              business impact.`}
             </p>
             <Button asChild size="lg">
               <Link href="/contact">
-                Let's Talk Data <ArrowRight className="ml-2 h-5 w-5" />
+                {"Let's Talk Data"} <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
           </Card>

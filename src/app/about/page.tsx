@@ -89,7 +89,7 @@ export default function AboutPage() {
       <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl sm:text-5xl font-bold text-balance mb-8">
-            I'm a Data Engineer who builds data systems that <span className="text-primary">power decisions</span>
+            {"I'm a Data Engineer who builds data systems that"} <span className="text-primary">power decisions</span>
           </h1>
 
           <div className="max-w-3xl mx-auto">
@@ -101,9 +101,9 @@ export default function AboutPage() {
             </p>
 
             <p className="text-lg text-foreground leading-relaxed">
-              I believe the best data engineering isn't just about moving data efficiently — it's about enabling
+              {`I believe the best data engineering isn't just about moving data efficiently — it's about enabling
               organizations to make better decisions faster. Whether it's real-time fraud detection, customer
-              segmentation, or operational analytics, I build systems that turn data into competitive advantage.
+              segmentation, or operational analytics, I build systems that turn data into competitive advantage.`}
             </p>
           </div>
         </div>
@@ -221,10 +221,10 @@ export default function AboutPage() {
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
           <Card className="bg-card/60 backdrop-blur-sm border-border/20 p-8">
-            <h2 className="text-2xl sm:text-3xl font-bold mb-4">Let's Build Something Together</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold mb-4">{"Let's Build Something Together"}</h2>
             <p className="text-muted-foreground mb-6 text-pretty">
-              Whether you need to scale your data infrastructure, implement real-time analytics, or build ML pipelines,
-              I'd love to discuss how we can solve your data challenges.
+              {`Whether you need to scale your data infrastructure, implement real-time analytics, or build ML pipelines,
+              I'd love to discuss how we can solve your data challenges.`}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg">

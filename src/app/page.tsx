@@ -35,7 +35,7 @@ export default function HomePage() {
                 </Link>
               </Button>
               <Button asChild variant="outline" size="lg" className="text-lg px-8 bg-transparent hover-lift">
-                <Link href="/contact">Let's Talk Data</Link>
+                <Link href="/contact">{"Let's Talk Data"}</Link>
               </Button>
             </div>
           </ScrollAnimation>

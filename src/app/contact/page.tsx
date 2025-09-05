@@ -66,12 +66,12 @@ export default function ContactPage() {
       <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-balance mb-8">
-            Let's talk about building your next <span className="text-primary">data platform</span>
+            {"Let's talk about building your next"} <span className="text-primary">data platform</span>
           </h1>
 
           <p className="text-xl text-muted-foreground text-pretty mb-12 max-w-3xl mx-auto leading-relaxed">
-            Whether you're scaling your data infrastructure, implementing real-time analytics, or building ML pipelines,
-            I'd love to discuss how we can solve your data challenges together.
+            {`Whether you're scaling your data infrastructure, implementing real-time analytics, or building ML pipelines,
+            I'd love to discuss how we can solve your data challenges together.`}
           </p>
 
           {/* Primary CTA */}
@@ -200,13 +200,13 @@ export default function ContactPage() {
                 Ready to transform your data into competitive advantage?
               </h2>
               <p className="text-xl text-muted-foreground mb-8 text-pretty">
-                Let's discuss your data challenges and explore how modern data engineering can accelerate your business
-                goals.
+                {`Let's discuss your data challenges and explore how modern data engineering can accelerate your business
+                goals.`}
               </p>
               <Button asChild size="lg" className="text-lg px-8 py-6">
                 <Link href="mailto:hello@dataengineer.dev">
                   <Mail className="mr-2 h-6 w-6" />
-                  Let's Build Something Great
+                  {"Let's Build Something Great"}
                 </Link>
               </Button>
             </div>

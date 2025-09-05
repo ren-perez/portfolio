@@ -67,7 +67,7 @@ export function Navigation() {
 
             <div className="flex items-center space-x-3 ml-4 pl-4 border-l border-border/30">
               <Link
-                href="https://linkedin.com/in/yourprofile"
+                href="https://linkedin.com/in/renato-perezg"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-foreground hover:text-primary transition-colors"
@@ -75,7 +75,7 @@ export function Navigation() {
                 <Linkedin className="h-5 w-5" />
               </Link>
               <Link
-                href="https://github.com/yourusername"
+                href="https://github.com/ren-perez"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-foreground hover:text-primary transition-colors"
