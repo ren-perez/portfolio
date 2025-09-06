@@ -131,6 +131,7 @@ const projects = {
     links: {
       github: "https://github.com/example/nyc-taxi-optimization",
       demo: "https://demo.taxi-optimization.com",
+      // Note: No blog link for this project
     },
     icon: Zap,
     gradient: "from-secondary/20 to-accent/20",
@@ -255,7 +256,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                     </Link>
                   </Button>
                 )}
-                {project.links.blog && (
+                {'blog' in project.links && project.links.blog && (
                   <Button asChild variant="ghost">
                     <Link href={project.links.blog}>
                       <Globe className="mr-2 h-4 w-4" />
