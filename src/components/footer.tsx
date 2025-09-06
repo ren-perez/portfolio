@@ -54,7 +54,7 @@ export function Footer() {
           {/* Brand Section */}
           <div className="md:col-span-2">
             <Link href="/" className="font-mono text-xl font-semibold text-foreground mb-4 block">
-              DataEng
+              Renato Perez
             </Link>
             <p className="text-muted-foreground mb-6 max-w-md leading-relaxed">
               Building batch and real-time data pipelines that deliver reliable data for analytics and machine learning.
@@ -98,7 +98,7 @@ export function Footer() {
         {/* Bottom Section */}
         <div className="border-t border-border/20 mt-8 pt-8 flex flex-col sm:flex-row justify-between items-center">
           <p className="text-muted-foreground text-sm">
-            © {new Date().getFullYear()} DataEng Portfolio. Built with Next.js and Tailwind CSS.
+            © {new Date().getFullYear()} Renato Perez Portfolio. All rights reserved.
           </p>
           <Button variant="ghost" size="sm" onClick={scrollToTop} className="mt-4 sm:mt-0">
             <ArrowUp className="h-4 w-4 mr-2" />

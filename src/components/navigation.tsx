@@ -34,7 +34,7 @@ export function Navigation() {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
         isScrolled
-          ? "backdrop-blur-xl bg-background/95 border-b border-border/30"
+          ? "backdrop-blur-lg bg-background/70 border-b border-border/30"
           : "bg-transparent border-b border-transparent",
       )}
     >
@@ -44,7 +44,7 @@ export function Navigation() {
             href="/"
             className="font-mono text-lg font-semibold text-foreground hover:text-primary transition-colors"
           >
-            DataEng
+            Renato Perez
           </Link>
 
           {/* Desktop Navigation */}
@@ -65,7 +65,7 @@ export function Navigation() {
               </Link>
             ))}
 
-            <div className="flex items-center space-x-3 ml-4 pl-4 border-l border-border/30">
+            <div className="flex items-center space-x-4 ml-4 pl-10 border-l border-border/70">
               <Link
                 href="https://linkedin.com/in/renato-perezg"
                 target="_blank"
@@ -84,12 +84,12 @@ export function Navigation() {
               </Link>
             </div>
 
-            <ModeToggle />
+            {/* <ModeToggle /> */}
           </div>
 
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center space-x-2">
-            <ModeToggle />
+            {/* <ModeToggle /> */}
             <Button variant="ghost" size="sm" onClick={() => setIsOpen(!isOpen)} className="text-foreground">
               {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </Button>
