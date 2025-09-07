@@ -89,7 +89,7 @@ export default function AboutPage() {
       <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl sm:text-5xl font-bold text-balance mb-8">
-            {"I'm a Data Engineer who builds data systems that"} <span className="text-primary">power decisions</span>
+            {"I'm a Data Engineer who builds data systems that"} <span className="text-shimmer">power decisions</span>
           </h1>
 
           <div className="max-w-3xl mx-auto">

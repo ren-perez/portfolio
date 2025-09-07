@@ -201,7 +201,7 @@ export default function HomePage() {
           </div>
 
           <ScrollAnimation animation="fade-in-up" delay={400}>
-            <div className="text-center mt-12">
+            <div className="text-center mt-12 mb-16">
               <Button asChild size="lg" variant="outline" className="hover-lift bg-transparent">
                 <Link href="/projects">
                   View All Projects <ArrowRight className="ml-2 h-5 w-5" />

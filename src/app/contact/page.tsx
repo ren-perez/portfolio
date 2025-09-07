@@ -9,15 +9,15 @@ const contactMethods = [
     title: "Email",
     description: "Best for detailed project discussions and collaboration opportunities",
     href: "mailto:hello@dataengineer.dev",
-    label: "hello@dataengineer.dev",
+    label: "resebpego@gmail.com",
     icon: Mail,
     primary: true,
   },
   {
     title: "LinkedIn",
     description: "Connect professionally and see my latest updates",
-    href: "https://linkedin.com/in/dataengineer",
-    label: "linkedin.com/in/dataengineer",
+    href: "https://linkedin.com/in/renato-perezg",
+    label: "Connect",
     icon: Linkedin,
     primary: false,
   },
@@ -25,7 +25,7 @@ const contactMethods = [
     title: "GitHub",
     description: "Explore my code, contributions, and open source projects",
     href: "https://github.com/dataengineer",
-    label: "github.com/dataengineer",
+    label: "Explore",
     icon: Github,
     primary: false,
   },
@@ -66,7 +66,7 @@ export default function ContactPage() {
       <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-balance mb-8">
-            {"Let's talk about building your next"} <span className="text-primary">data platform</span>
+            {"Let's talk about building your next"} <span className="text-shimmer">data platform</span>
           </h1>
 
           <p className="text-xl text-muted-foreground text-pretty mb-12 max-w-3xl mx-auto leading-relaxed">
@@ -76,8 +76,8 @@ export default function ContactPage() {
 
           {/* Primary CTA */}
           <div className="mb-16">
-            <Button asChild size="lg" className="text-lg px-8 py-6">
-              <Link href="mailto:hello@dataengineer.dev">
+            <Button asChild size="lg" className="text-lg px-8 py-6 pulse-glow">
+              <Link href="mailto:reseb">
                 <Mail className="mr-2 h-5 w-5" />
                 Start the Conversation
               </Link>
@@ -104,7 +104,7 @@ export default function ContactPage() {
                     method.primary ? "ring-2 ring-primary/20" : ""
                   }`}
                 >
-                  <CardContent className="p-8 text-center">
+                  <CardContent className="p-8 text-center flex flex-col justify-between h-full">
                     <div
                       className={`w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 ${
                         method.primary ? "bg-primary/20" : "bg-secondary/10"
@@ -180,7 +180,7 @@ export default function ContactPage() {
               <div>
                 <h3 className="font-semibold text-primary mb-2">Availability</h3>
                 <p className="text-muted-foreground">
-                  Currently accepting new projects starting Q2 2024. I work with 2-3 clients at a time to ensure focused
+                  Currently accepting new projects. I work with 2-3 clients at a time to ensure focused
                   attention and quality delivery.
                 </p>
               </div>

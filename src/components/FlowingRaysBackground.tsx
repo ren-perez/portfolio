@@ -110,11 +110,11 @@ export default function FlowingRaysBackground({
 
   return (
     <div 
-      className={`absolute inset-0 ${showBackground ? `bg-${backgroundColor}` : ''} ${className}`} 
+      className={`fixed inset-0 w-screen h-screen ${showBackground ? `bg-${backgroundColor}` : ''} ${className}`} 
       style={{ opacity }}
     >
       {/* Flowing wave rays overlay */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 w-full h-full">
         <svg
           className="absolute inset-0 w-full h-full"
           viewBox={viewBox}
@@ -145,14 +145,32 @@ export default function FlowingRaysBackground({
               <stop offset="100%" stopColor={`rgba(${accentColor},0)`} />
             </radialGradient>
 
-            {/* Hero text background gradients */}
+            {/* Full-screen hero text background gradients */}
             {showHeroBackground && (
-              <radialGradient id="heroTextBg" cx="30%" cy="50%" r="70%">
-                <stop offset="0%" stopColor={`rgba(${primaryColor},${heroBackgroundIntensity * 0.15})`} />
-                <stop offset="40%" stopColor={`rgba(${secondaryColor},${heroBackgroundIntensity * 0.08})`} />
-                <stop offset="80%" stopColor={`rgba(${accentColor},${heroBackgroundIntensity * 0.05})`} />
-                <stop offset="100%" stopColor="rgba(0,0,0,0)" />
-              </radialGradient>
+              <>
+                <radialGradient id="heroTextBg" cx="25%" cy="40%" r="80%">
+                  <stop offset="0%" stopColor={`rgba(${primaryColor},${heroBackgroundIntensity * 0.2})`} />
+                  <stop offset="30%" stopColor={`rgba(${secondaryColor},${heroBackgroundIntensity * 0.15})`} />
+                  <stop offset="60%" stopColor={`rgba(${accentColor},${heroBackgroundIntensity * 0.1})`} />
+                  <stop offset="100%" stopColor="rgba(0,0,0,0)" />
+                </radialGradient>
+                
+                <radialGradient id="heroTextBg2" cx="75%" cy="60%" r="70%">
+                  <stop offset="0%" stopColor={`rgba(${secondaryColor},${heroBackgroundIntensity * 0.15})`} />
+                  <stop offset="40%" stopColor={`rgba(${primaryColor},${heroBackgroundIntensity * 0.1})`} />
+                  <stop offset="80%" stopColor={`rgba(${accentColor},${heroBackgroundIntensity * 0.05})`} />
+                  <stop offset="100%" stopColor="rgba(0,0,0,0)" />
+                </radialGradient>
+
+                {/* Bottom darkening gradient */}
+                <linearGradient id="bottomDarkening" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stopColor="rgba(0,0,0,0)" />
+                  <stop offset="50%" stopColor="rgba(0,0,0,0)" />
+                  <stop offset="75%" stopColor="rgba(0,0,0,0.2)" />
+                  <stop offset="90%" stopColor="rgba(0,0,0,0.4)" />
+                  <stop offset="100%" stopColor="rgba(0,0,0,0.7)" />
+                </linearGradient>
+              </>
             )}
 
             {/* Thread fade gradients */}
@@ -179,11 +197,11 @@ export default function FlowingRaysBackground({
 
             {/* Filters */}
             <filter id="heroTextBlur" x="-50%" y="-50%" width="200%" height="200%">
-              <feGaussianBlur stdDeviation="12" result="blur" />
-              <feTurbulence baseFrequency="0.7" numOctaves="4" result="noise" />
+              <feGaussianBlur stdDeviation="15" result="blur" />
+              <feTurbulence baseFrequency="0.5" numOctaves="3" result="noise" />
               <feColorMatrix in="noise" type="saturate" values="0" result="monoNoise" />
               <feComponentTransfer in="monoNoise" result="alphaAdjustedNoise">
-                <feFuncA type="discrete" tableValues="0.03 0.06 0.09 0.12" />
+                <feFuncA type="discrete" tableValues="0.02 0.04 0.06 0.08" />
               </feComponentTransfer>
               <feComposite in="blur" in2="alphaAdjustedNoise" operator="multiply" result="noisyBlur" />
               <feMerge>
@@ -201,38 +219,53 @@ export default function FlowingRaysBackground({
           </defs>
 
           <g>
-            {/* Hero text background shapes */}
-            {/* {showHeroBackground && (
+            {/* Full-screen hero text background shapes */}
+            {showHeroBackground && (
               <>
+                {/* Large ellipse covering most of the screen */}
                 <ellipse
-                  cx="300"
-                  cy="350"
-                  rx="400"
-                  ry="200"
+                  cx="600"
+                  cy="400"
+                  rx="800"
+                  ry="500"
                   fill="url(#heroTextBg)"
                   filter="url(#heroTextBlur)"
                   opacity={heroBackgroundIntensity}
                 />
+                
+                {/* Secondary ellipse for additional coverage */}
                 <ellipse
-                  cx="350"
-                  cy="320"
-                  rx="500"
-                  ry="250"
-                  fill="url(#heroTextBg)"
-                  filter="url(#heroTextBlur)"
-                  opacity={heroBackgroundIntensity * 0.67}
-                />
-                <ellipse
-                  cx="400"
-                  cy="300"
+                  cx="900"
+                  cy="500"
                   rx="600"
-                  ry="300"
+                  ry="400"
+                  fill="url(#heroTextBg2)"
+                  filter="url(#heroTextBlur)"
+                  opacity={heroBackgroundIntensity * 0.7}
+                />
+                
+                {/* Extra large ellipse for full screen coverage */}
+                <ellipse
+                  cx="600"
+                  cy="300"
+                  rx="1000"
+                  ry="600"
                   fill="url(#heroTextBg)"
                   filter="url(#heroTextBlur)"
-                  opacity={heroBackgroundIntensity * 0.33}
+                  opacity={heroBackgroundIntensity * 0.3}
+                />
+
+                {/* Bottom darkening overlay */}
+                <rect
+                  x="0"
+                  y="0"
+                  width="1200"
+                  height="800"
+                  fill="url(#bottomDarkening)"
+                  opacity="1"
                 />
               </>
-            )} */}
+            )}
 
             {/* Generate flowing threads */}
             {Array.from({ length: Math.min(threadCount, 50) }, (_, i) => {
@@ -307,26 +340,16 @@ export default function FlowingRaysBackground({
 export function FlowingRaysDemo() {
   return (
     <div className="w-full h-screen relative overflow-hidden">
-      {/* Original orange theme */}
-      <FlowingRaysBackground />
-      
-      {/* Example with different colors - uncomment to test */}
-      {/* 
+      {/* Full screen background with dark bottom */}
       <FlowingRaysBackground 
-        primaryColor="59,130,246"  // blue-500
-        secondaryColor="96,165,250" // blue-400  
-        accentColor="37,99,235"     // blue-600
-        animationSpeed={0.5}
-        threadOpacity={0.8}
-        pulseIntensity={1.2}
+        heroBackgroundIntensity={0.8}
       />
-      */}
       
       {/* Content overlay */}
       <div className="relative z-10 flex items-center justify-center h-full">
         <div className="text-center text-white">
           <h1 className="text-6xl font-bold mb-4">Flowing Rays</h1>
-          <p className="text-xl opacity-80">Customizable animated background component</p>
+          <p className="text-xl opacity-80">Full screen animated background component</p>
         </div>
       </div>
     </div>

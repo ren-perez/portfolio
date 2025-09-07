@@ -110,8 +110,8 @@ export default function ProjectsPage() {
         <div className="max-w-6xl mx-auto">
           <ScrollAnimation animation="fade-in-up">
             <div className="text-center mb-16">
-              <h1 className="text-4xl sm:text-5xl font-bold text-balance mb-6">
-                Data Engineering <span className="text-shimmer">Projects</span>
+              <h1 className="text-4xl sm:text-5xl font-bold text-balance mb-16">
+                <span className="text-shimmer">Projects</span>
               </h1>
               <p className="text-xl text-muted-foreground text-pretty max-w-3xl mx-auto">
                 Real-world data engineering solutions that solve business problems and deliver measurable impact. Each
