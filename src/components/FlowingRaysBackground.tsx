@@ -42,7 +42,7 @@ export default function FlowingRaysBackground({
   threadCount = 36,
   showHeroBackground = true,
   heroBackgroundIntensity = 0.6,
-  viewBox = "0 0 1200 800",
+  viewBox = "0 -100 1200 800",
   className = ""
 }: FlowingRaysBackgroundProps) {
   
@@ -299,6 +299,48 @@ export default function FlowingRaysBackground({
           </g>
         </svg>
       </div>
+
+      {/* CSS-based noise pattern for mobile fallback */}
+      <div 
+        className="absolute inset-0 w-full h-full md:hidden opacity-30"
+        style={{
+          background: `
+            radial-gradient(circle at 25% 40%, rgba(${primaryColor}, ${heroBackgroundIntensity * 0.15}) 0%, transparent 60%),
+            radial-gradient(circle at 75% 60%, rgba(${secondaryColor}, ${heroBackgroundIntensity * 0.1}) 0%, transparent 50%),
+            linear-gradient(180deg, 
+              rgba(0,0,0,0.1) 0%, 
+              rgba(0,0,0,0.15) 40%, 
+              rgba(0,0,0,0.3) 60%, 
+              rgba(0,0,0,0.6) 80%, 
+              rgba(0,0,0,0.9) 100%
+            )
+          `,
+          filter: 'blur(8px)',
+        }}
+      />
+
+      {/* Additional CSS noise texture */}
+      <div 
+        className="absolute inset-0 w-full h-full md:hidden opacity-20"
+        style={{
+          backgroundImage: `
+            repeating-linear-gradient(
+              0deg,
+              transparent,
+              transparent 1px,
+              rgba(${primaryColor}, 0.03) 2px,
+              rgba(${primaryColor}, 0.03) 3px
+            ),
+            repeating-linear-gradient(
+              90deg,
+              transparent,
+              transparent 1px,
+              rgba(${secondaryColor}, 0.02) 2px,
+              rgba(${secondaryColor}, 0.02) 3px
+            )
+          `
+        }}
+      />
 
       <style jsx>{`
         @keyframes pulse1 {

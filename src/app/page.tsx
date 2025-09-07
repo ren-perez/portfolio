@@ -21,9 +21,10 @@ export default function HomePage() {
           animationSpeed={0.8}
           threadOpacity={0.9}
           pulseIntensity={1.1}
-          threadCount={24}
+          threadCount={18}
           opacity={0.9} // New prop to control visibility
           showBackground={true}
+          showHeroBackground={true}
         />
 
         {/* Centered Content */}
