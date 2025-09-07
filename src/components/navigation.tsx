@@ -5,7 +5,7 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { ModeToggle } from "@/components/mode-toggle"
-import { Menu, X, Github, Linkedin } from "lucide-react"
+import { Menu, X, Github, Linkedin, Download } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 const navigationItems = [
@@ -65,7 +65,7 @@ export function Navigation() {
               </Link>
             ))}
 
-            <div className="flex items-center space-x-4 ml-4 pl-10 border-l border-border/70">
+            <div className="flex items-center space-x-6 ml-4 pl-10 border-l border-border/70">
               <Link
                 href="https://linkedin.com/in/renato-perezg"
                 target="_blank"
@@ -74,6 +74,7 @@ export function Navigation() {
               >
                 <Linkedin className="h-5 w-5" />
               </Link>
+
               <Link
                 href="https://github.com/ren-perez"
                 target="_blank"
@@ -82,6 +83,16 @@ export function Navigation() {
               >
                 <Github className="h-5 w-5" />
               </Link>
+
+              <a
+                href="/resume.docx"
+                download
+                className="flex items-center px-4 py-2 border rounded-md text-[color:var(--primary)] border-[color:var(--primary)] transition hover:bg-[color:var(--primary)] hover:text-[color:var(--primary-foreground)] hover:shadow-[0_0_12px_var(--primary)]"
+              >
+                <Download className="mr-2 h-4 w-4" />
+                Resume
+              </a>
+
             </div>
 
             {/* <ModeToggle /> */}

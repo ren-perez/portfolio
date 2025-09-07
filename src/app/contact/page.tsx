@@ -39,7 +39,7 @@ const collaborationTypes = [
   },
   {
     title: "Real-time Analytics",
-    description: "Implement streaming pipelines for real-time insights and decision making",
+    description: "Implement streaming pipelines for real-time insights and data-driven decision making",
     icon: Calendar,
   },
   {

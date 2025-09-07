@@ -23,38 +23,41 @@ const skills = [
 const experience = [
   {
     title: "Senior Data Engineer",
-    company: "TechCorp Analytics",
-    period: "2022 - Present",
+    company: "Saturn Laboratories",
+    period: "August 2023 - Present",
     description:
-      "Lead data platform architecture serving 50M+ daily events. Built real-time ML pipelines that increased revenue by $2M annually through personalization and fraud detection.",
+      "Design and deploy scalable analytics systems for e-commerce and IoT platforms. Engineer data pipelines processing 2TB/day with focus on real-time analytics, financial modeling, and automated data governance.",
     achievements: [
-      "Reduced data pipeline latency from hours to minutes",
-      "Implemented automated data quality monitoring",
-      "Led migration to modern data stack (Databricks + Delta Lake)",
+      "Built real-time analytics system for food e-commerce platform, improving decision-making speed by 40%",
+      "Engineered scalable IoT analytics pipeline with 35% latency reduction and 99.5% uptime",
+      "Developed financial Data Lakehouse with predictive models for risk detection and portfolio stress testing",
+      "Optimized ETL/ELT pipelines on Azure Databricks with Delta Lake, improving query performance by 30%",
     ],
   },
   {
     title: "Data Engineer",
-    company: "StartupScale Inc",
-    period: "2020 - 2022",
+    company: "Amazon",
+    period: "May 2023 - August 2023",
     description:
-      "Built analytics infrastructure from scratch for fast-growing SaaS platform. Enabled data-driven decision making that supported 10x user growth and successful Series B funding.",
+      "Architected robust data pipelines for climate initiative analytics using AWS cloud services. Built scalable data models and optimized performance for real-time IoT telemetry processing.",
     achievements: [
-      "Designed scalable ETL pipelines handling 1TB+ daily",
-      "Created self-service analytics platform for business teams",
-      "Established data governance and quality standards",
+      "Improved reporting cycle time by 80% through automated validation workflows using AWS Glue and Spark",
+      "Optimized Redshift query performance by 40+% through advanced SQL techniques and indexing",
+      "Built comprehensive KPI visualizations on AWS QuickSight and Power BI for climate initiatives",
+      "Established performance benchmarks and quality standards for cross-functional decision making",
     ],
   },
   {
-    title: "Analytics Engineer",
-    company: "DataFirst Solutions",
-    period: "2018 - 2020",
+    title: "Data Engineer",
+    company: "Ernst & Young",
+    period: "January 2018 - December 2022",
     description:
-      "Specialized in transforming raw business data into actionable insights. Worked with cross-functional teams to deliver analytics solutions that drove strategic business decisions.",
+      "Led design and implementation of enterprise data systems for fraud detection and compliance. Integrated Azure cloud services with focus on data governance, metadata management, and strategic analytics.",
     achievements: [
-      "Built customer segmentation models improving marketing ROI by 40%",
-      "Automated financial reporting reducing manual work by 80%",
-      "Implemented A/B testing framework for product optimization",
+      "Reduced processing times by 50% for fraud detection golden datasets using Azure Databricks and Spark",
+      "Integrated Azure Purview for automated metadata cataloging and CCPA/GDPR compliance monitoring",
+      "Created 20+ strategic data models with comprehensive documentation and quality metrics",
+      "Established data governance practices including ETL documentation and quality assurance protocols",
     ],
   },
 ]

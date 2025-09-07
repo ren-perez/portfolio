@@ -1,11 +1,51 @@
-
 import FlowingRaysBackground from "@/components/FlowingRaysBackground"
 import { Navigation } from "@/components/navigation"
 import { ScrollAnimation } from "@/components/scroll-animation"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
+import { ImageCard, ImageCardImage, ImageCardContent } from "@/components/ImageCard"
 import { ArrowRight, Database, Zap, BarChart3 } from "lucide-react"
 import Link from "next/link"
+
+// Project data structure
+const featuredProjects = [
+  {
+    id: 1,
+    title: "Shop Analytics",
+    description: "Enabled customer funnel and retention tracking for an e-commerce store, for an analytics stack.",
+    icon: Database,
+    iconColor: "text-primary",
+    gradientFrom: "from-primary/20",
+    gradientTo: "to-secondary/20",
+    diagramLabel: "Architecture Diagram",
+    href: "/projects/fake-shop-analytics",
+    delay: 100
+  },
+  {
+    id: 2,
+    title: "NYC Taxi Price Optimization",
+    description: "Built a streaming pipeline to optimize taxi fares in real time, reducing pricing gaps and improving revenue.",
+    icon: Zap,
+    iconColor: "text-secondary",
+    gradientFrom: "from-secondary/20",
+    gradientTo: "to-accent/20",
+    diagramLabel: "Streaming Pipeline",
+    href: "/projects/nyc-taxi-optimization",
+    delay: 200
+  },
+  {
+    id: 3,
+    title: "Financial Data Lakehouse",
+    description: "Delivered enterprise-ready risk dashboards and anomaly detection using Databricks + Delta Lake.",
+    icon: BarChart3,
+    iconColor: "text-accent",
+    gradientFrom: "from-accent/20",
+    gradientTo: "to-primary/20",
+    diagramLabel: "Data Lakehouse",
+    href: "/projects/financial-lakehouse",
+    delay: 300
+  }
+]
 
 export default function HomePage() {
   return (
@@ -123,82 +163,36 @@ export default function HomePage() {
           </ScrollAnimation>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Project Card 1 */}
-            <ScrollAnimation animation="fade-in-up" delay={100}>
-              <Card className="bg-card/60 backdrop-blur-sm border-border/20 hover-lift hover-glow transition-all duration-300 group">
-                <CardContent className="p-0">
-                  <div className="aspect-video bg-gradient-to-br from-primary/20 to-secondary/20 rounded-t-lg flex items-center justify-center diagram-zoom">
-                    <div className="text-center">
-                      <Database className="h-12 w-12 text-primary mx-auto mb-2" />
-                      <p className="text-sm text-muted-foreground">Architecture Diagram</p>
-                    </div>
-                  </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-semibold mb-2">Fake Shop Analytics</h3>
-                    <p className="text-muted-foreground mb-4">
-                      Enabled customer funnel and retention tracking for a fake e-commerce store, simulating a
-                      startup-grade analytics stack.
-                    </p>
-                    <Button asChild variant="ghost" className="group-hover:text-primary transition-colors">
-                      <Link href="/projects/fake-shop-analytics">
-                        Learn More <ArrowRight className="ml-2 h-4 w-4" />
-                      </Link>
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
-            </ScrollAnimation>
-
-            {/* Project Card 2 */}
-            <ScrollAnimation animation="fade-in-up" delay={200}>
-              <Card className="bg-card/60 backdrop-blur-sm border-border/20 hover-lift hover-glow transition-all duration-300 group">
-                <CardContent className="p-0">
-                  <div className="aspect-video bg-gradient-to-br from-secondary/20 to-accent/20 rounded-t-lg flex items-center justify-center diagram-zoom">
-                    <div className="text-center">
-                      <Zap className="h-12 w-12 text-secondary mx-auto mb-2" />
-                      <p className="text-sm text-muted-foreground">Streaming Pipeline</p>
-                    </div>
-                  </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-semibold mb-2">NYC Taxi Price Optimization</h3>
-                    <p className="text-muted-foreground mb-4">
-                      Built a streaming pipeline to optimize taxi fares in real time, reducing pricing gaps and
-                      improving revenue.
-                    </p>
-                    <Button asChild variant="ghost" className="group-hover:text-primary transition-colors">
-                      <Link href="/projects/nyc-taxi-optimization">
-                        Learn More <ArrowRight className="ml-2 h-4 w-4" />
-                      </Link>
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
-            </ScrollAnimation>
-
-            {/* Project Card 3 */}
-            <ScrollAnimation animation="fade-in-up" delay={300}>
-              <Card className="bg-card/60 backdrop-blur-sm border-border/20 hover-lift hover-glow transition-all duration-300 group">
-                <CardContent className="p-0">
-                  <div className="aspect-video bg-gradient-to-br from-accent/20 to-primary/20 rounded-t-lg flex items-center justify-center diagram-zoom">
-                    <div className="text-center">
-                      <BarChart3 className="h-12 w-12 text-accent mx-auto mb-2" />
-                      <p className="text-sm text-muted-foreground">Data Lakehouse</p>
-                    </div>
-                  </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-semibold mb-2">Financial Data Lakehouse</h3>
-                    <p className="text-muted-foreground mb-4">
-                      Delivered enterprise-ready risk dashboards and anomaly detection using Databricks + Delta Lake.
-                    </p>
-                    <Button asChild variant="ghost" className="group-hover:text-primary transition-colors">
-                      <Link href="/projects/financial-lakehouse">
-                        Learn More <ArrowRight className="ml-2 h-4 w-4" />
-                      </Link>
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
-            </ScrollAnimation>
+            {featuredProjects.map((project) => {
+              const IconComponent = project.icon
+              return (
+                <ScrollAnimation 
+                  key={project.id} 
+                  animation="fade-in-up" 
+                  delay={project.delay}
+                >
+                  <ImageCard className="bg-card/60 backdrop-blur-sm border-border/20 hover-lift hover-glow transition-all duration-300 group">
+                    <ImageCardImage className={`aspect-video bg-gradient-to-br ${project.gradientFrom} ${project.gradientTo} flex items-center justify-center diagram-zoom`}>
+                      <div className="text-center">
+                        <IconComponent className={`h-12 w-12 ${project.iconColor} mx-auto mb-2`} />
+                        <p className="text-sm text-muted-foreground">{project.diagramLabel}</p>
+                      </div>
+                    </ImageCardImage>
+                    <ImageCardContent>
+                      <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
+                      <p className="text-muted-foreground mb-4">
+                        {project.description}
+                      </p>
+                      <Button asChild variant="ghost" className="group-hover:text-primary transition-colors">
+                        <Link href={project.href}>
+                          Learn More <ArrowRight className="ml-2 h-4 w-4" />
+                        </Link>
+                      </Button>
+                    </ImageCardContent>
+                  </ImageCard>
+                </ScrollAnimation>
+              )
+            })}
           </div>
 
           <ScrollAnimation animation="fade-in-up" delay={400}>

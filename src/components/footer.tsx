@@ -6,17 +6,17 @@ import { Github, Linkedin, Mail, ArrowUp } from "lucide-react"
 
 const socialLinks = [
   {
-    href: "mailto:hello@dataengineer.dev",
+    href: "mailto:resebpego@gmail.com",
     label: "Email",
     icon: Mail,
   },
   {
-    href: "https://linkedin.com/in/dataengineer",
+    href: "https://linkedin.com/in/renato-perezg",
     label: "LinkedIn",
     icon: Linkedin,
   },
   {
-    href: "https://github.com/dataengineer",
+    href: "https://github.com/ren-perez",
     label: "GitHub",
     icon: Github,
   },
@@ -65,10 +65,10 @@ export function Footer() {
                 const IconComponent = social.icon
                 return (
                   <Button key={social.label} variant="ghost" size="sm" asChild>
-                    <Link href={social.href}>
+                    <a href={social.href} target="_blank">
                       <IconComponent className="h-4 w-4" />
                       <span className="sr-only">{social.label}</span>
-                    </Link>
+                    </a>
                   </Button>
                 )
               })}
