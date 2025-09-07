@@ -48,7 +48,7 @@ export function Navigation() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden lg:flex items-center space-x-8">
             {navigationItems.map((item) => (
               <Link
                 key={item.href}
@@ -87,7 +87,7 @@ export function Navigation() {
               <a
                 href="/resume.docx"
                 download
-                className="flex items-center px-4 py-2 border rounded-md text-[color:var(--primary)] border-[color:var(--primary)] transition hover:bg-[color:var(--primary)] hover:text-[color:var(--primary-foreground)] hover:shadow-[0_0_12px_var(--primary)]"
+                className="flex items-center px-4 py-2 rounded-md text-[color:var(--primary)] transition hover:bg-[color:var(--primary)] hover:text-[color:var(--primary-foreground)] hover:shadow-[0_0_12px_var(--primary)]"
               >
                 <Download className="mr-2 h-4 w-4" />
                 Resume
@@ -98,18 +98,36 @@ export function Navigation() {
             {/* <ModeToggle /> */}
           </div>
 
-          {/* Mobile menu button */}
-          <div className="md:hidden flex items-center space-x-2">
-            {/* <ModeToggle /> */}
+          {/* Mobile menu left icons + menu button */}
+          <div className="lg:hidden flex items-center space-x-4">
+            <Link
+              href="https://linkedin.com/in/renato-perezg"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-foreground hover:text-primary transition-colors"
+            >
+              <Linkedin className="h-5 w-5" />
+            </Link>
+
+            <Link
+              href="https://github.com/ren-perez"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-foreground hover:text-primary transition-colors"
+            >
+              <Github className="h-5 w-5" />
+            </Link>
+
             <Button variant="ghost" size="sm" onClick={() => setIsOpen(!isOpen)} className="text-foreground">
               {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </Button>
           </div>
+
         </div>
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden border-t border-border/20 bg-background/95 backdrop-blur-sm">
+          <div className="lg:hidden border-t border-border/20 bg-background/95 backdrop-blur-sm">
             <div className="px-2 pt-2 pb-3 space-y-1">
               {navigationItems.map((item) => (
                 <Link
@@ -125,24 +143,17 @@ export function Navigation() {
                 </Link>
               ))}
 
-              <div className="flex items-center space-x-4 px-3 py-2 border-t border-border/20 mt-2 pt-4">
-                <Link
-                  href="https://linkedin.com/in/yourprofile"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-foreground hover:text-primary transition-colors"
+              <div className="px-3 py-4 border-t border-border/20 mt-2">
+                <a
+                  href="/resume.docx"
+                  download
+                  className="flex items-center w-full justify-center px-4 py-2 rounded-md text-[color:var(--primary)] border border-[color:var(--primary)] transition hover:bg-[color:var(--primary)] hover:text-[color:var(--primary-foreground)] hover:shadow-[0_0_12px_var(--primary)]"
                 >
-                  <Linkedin className="h-5 w-5" />
-                </Link>
-                <Link
-                  href="https://github.com/yourusername"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-foreground hover:text-primary transition-colors"
-                >
-                  <Github className="h-5 w-5" />
-                </Link>
+                  <Download className="mr-2 h-4 w-4" />
+                  Resume
+                </a>
               </div>
+
             </div>
           </div>
         )}
