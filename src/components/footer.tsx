@@ -35,7 +35,7 @@ const footerLinks = [
   {
     title: "Projects",
     links: [
-      { href: "/projects/fake-shop-analytics", label: "Fake Shop Analytics" },
+      { href: "/projects/fake-shop-analytics", label: "E-commerce Shop Analytics" },
       { href: "/projects/nyc-taxi-optimization", label: "NYC Taxi Optimization" },
       { href: "/projects/financial-lakehouse", label: "Financial Data Lakehouse" },
     ],

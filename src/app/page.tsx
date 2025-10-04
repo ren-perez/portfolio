@@ -4,11 +4,35 @@ import { ScrollAnimation } from "@/components/scroll-animation"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { ImageCard, ImageCardImage, ImageCardContent } from "@/components/ImageCard"
-import { ArrowRight, Database, Zap, BarChart3 } from "lucide-react"
+import { ArrowRight, Database, Zap, BarChart3, Calendar, TrendingUp } from "lucide-react"
 import Link from "next/link"
 
 // Project data structure
 const featuredProjects = [
+  {
+    id: 5,
+    title: "Assembly Line Performance",
+    description: "Real-time manufacturing analytics dashboard to track assembly line efficiency and performance metrics.",
+    icon: TrendingUp,
+    iconColor: "text-chart-5",
+    gradientFrom: "from-chart-5/20",
+    gradientTo: "to-chart-3/20",
+    diagramLabel: "Performance Dashboard",
+    href: "/projects/assembly-line-performance",
+    delay: 100
+  },
+  // {
+  //   id: 4,
+  //   title: "Work Schedule Sync",
+  //   description: "Automated scraping of restaurant shifts and syncing them with Google Calendar using a GCP-first architecture.",
+  //   icon: Calendar,
+  //   iconColor: "text-chart-1",
+  //   gradientFrom: "from-chart-1/20",
+  //   gradientTo: "to-chart-2/20",
+  //   diagramLabel: "Cloud Workflow",
+  //   href: "/projects/work-schedule-sync",
+  //   delay: 200
+  // },
   {
     id: 1,
     title: "Shop Analytics",
@@ -19,7 +43,7 @@ const featuredProjects = [
     gradientTo: "to-secondary/20",
     diagramLabel: "Architecture Diagram",
     href: "/projects/fake-shop-analytics",
-    delay: 100
+    delay: 300
   },
   {
     id: 2,
@@ -31,19 +55,7 @@ const featuredProjects = [
     gradientTo: "to-accent/20",
     diagramLabel: "Streaming Pipeline",
     href: "/projects/nyc-taxi-optimization",
-    delay: 200
-  },
-  {
-    id: 3,
-    title: "Financial Data Lakehouse",
-    description: "Delivered enterprise-ready risk dashboards and anomaly detection using Databricks + Delta Lake.",
-    icon: BarChart3,
-    iconColor: "text-accent",
-    gradientFrom: "from-accent/20",
-    gradientTo: "to-primary/20",
-    diagramLabel: "Data Lakehouse",
-    href: "/projects/financial-lakehouse",
-    delay: 300
+    delay: 400
   }
 ]
 

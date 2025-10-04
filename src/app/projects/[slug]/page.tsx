@@ -2,14 +2,153 @@ import { Navigation } from "@/components/navigation"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { ArrowLeft, ArrowRight, ExternalLink, GitBranch, Globe, Database, Zap, BarChart3 } from "lucide-react"
+import { ArrowLeft, ArrowRight, ExternalLink, GitBranch, Globe, Database, Zap, BarChart3, Calendar, TrendingUp } from "lucide-react"
 import Link from "next/link"
 import { notFound } from "next/navigation"
+import { TableauEmbed } from "@/components/TableauEmbed"
 
 // Project data - in a real app, this would come from a CMS or database
 const projects = {
+  "assembly-line-performance": {
+    title: "Assembly Line Performance Dashboard",
+    tagline: "Real-time manufacturing analytics for production optimization and quality control",
+    description:
+      "Interactive Tableau dashboard delivering actionable insights into assembly line efficiency, production bottlenecks, and resource utilization for a manufacturing environment.",
+    businessProblem: {
+      title: "Business Problem",
+      content:
+        "Manufacturing teams struggle with fragmented visibility into production performance, leading to reactive decision-making and missed optimization opportunities. Without real-time insights into throughput, downtime causes, yield rates, and resource utilization, plant managers cannot proactively address bottlenecks or prevent quality issues. The lack of centralized analytics makes it difficult to identify root causes of inefficiencies, optimize shift scheduling, or align supply chain operations with production demands.",
+    },
+    solution: {
+      title: "Solution Architecture",
+      content:
+        "Built a comprehensive Tableau dashboard that transforms raw production data into actionable insights. The dashboard provides real-time visibility into assembly line performance, enabling stakeholders to monitor KPIs, identify bottlenecks, and make data-driven decisions to optimize operations.",
+      steps: [
+        {
+          title: "Data Integration",
+          description: "Consolidated production metrics, quality data, resource allocation, and supply chain information into a unified data model",
+        },
+        {
+          title: "KPI Framework",
+          description: "Designed key performance indicators including OEE, throughput vs target, yield percentage, and downtime analysis",
+        },
+        {
+          title: "Interactive Visualizations",
+          description: "Created heatmaps, trend lines, and Pareto charts to identify bottlenecks, downtime causes, and material shortages",
+        },
+        {
+          title: "Drill-Down Analytics",
+          description: "Enabled granular analysis from factory-wide metrics down to station-level, shift-level, and operator-level performance",
+        },
+      ],
+    },
+    impact: {
+      title: "Impact & Outcomes",
+      outcomes: [
+        {
+          metric: "Operational Visibility",
+          description: "Provided real-time visibility into production performance across multiple assembly lines and shifts",
+        },
+        {
+          metric: "Bottleneck Identification",
+          description: "Enabled rapid identification of production bottlenecks through station heatmaps and downtime analysis",
+        },
+        {
+          metric: "Data-Driven Decisions",
+          description: "Empowered operations managers and engineers to make informed decisions on resource allocation and preventive maintenance",
+        },
+        {
+          metric: "Cross-Functional Insights",
+          description: "Connected production data with supply chain metrics to identify material shortage impacts on line performance",
+        },
+      ],
+    },
+    techStack: ["Tableau", "Data Visualization", "Manufacturing Analytics", "Dashboard Design", "Performance Metrics"],
+    links: {
+      github: "https://github.com/example/assembly-line-dashboard",
+      demo: "https://public.tableau.com/views/AssemblyLinePerformance/AssemblyLinePerformance",
+    },
+    icon: TrendingUp,
+    gradient: "from-chart-5/20 to-chart-3/20",
+    iconColor: "text-chart-5",
+    tableauEmbedCode: `<div class="tableauPlaceholder" id="viz1759537720080" style="position: relative"><noscript><a href="#"><img alt="Assembly Line Performance " src="https://public.tableau.com/static/images/As/AssemblyLinePerformance/AssemblyLinePerformance/1_rss.png" style="border: none" /></a></noscript><object class="tableauViz"  style="display:none;"><param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F" /> <param name="embed_code_version" value="3" /> <param name="site_root" value="" /><param name="name" value="AssemblyLinePerformance/AssemblyLinePerformance" /><param name="tabs" value="no" /><param name="toolbar" value="yes" /><param name="static_image" value="https://public.tableau.com/static/images/As/AssemblyLinePerformance/AssemblyLinePerformance/1.png" /> <param name="animate_transition" value="yes" /><param name="display_static_image" value="yes" /><param name="display_spinner" value="yes" /><param name="display_overlay" value="yes" /><param name="display_count" value="yes" /><param name="language" value="en-US" /><param name="filter" value="publish=yes" /></object></div><script type="text/javascript">var divElement = document.getElementById('viz1759537720080');var vizElement = divElement.getElementsByTagName('object')[0];if ( divElement.offsetWidth > 800 ) { vizElement.style.width='100%';vizElement.style.height='700px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='100%';vizElement.style.height='700px';} else { vizElement.style.width='100%';vizElement.style.height='800px';}var scriptElement = document.createElement('script');scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';vizElement.parentNode.insertBefore(scriptElement, vizElement);</script>`,
+  },
+  "work-schedule-sync": {
+    title: "Work Schedule Sync",
+    tagline: "GCP-first architecture to keep restaurant shifts in sync with Google Calendar",
+    description:
+      "Designed and deployed a production-ready workflow that scrapes restaurant schedules and syncs them into Google Calendar. The solution is GCP-first, secure, and ready to scale into a multi-tenant V2.",
+    businessProblem: {
+      title: "Business Problem",
+      content:
+        "Restaurant employees often rely on clunky portals to check weekly schedules, with no easy integration into personal calendars. Manual entry leads to missed shifts, confusion, and poor time management. A simple yet scalable system was needed to automate this process reliably.",
+    },
+    solution: {
+      title: "Solution Architecture",
+      content:
+        "Implemented a serverless pipeline on GCP that scrapes schedules, stores them in GCS, and syncs them with Google Calendar. The design emphasizes least-privilege IAM, observability, and a clean evolution path toward a multi-user SaaS platform.",
+      steps: [
+        {
+          title: "Scraper Job",
+          description: "Cloud Run Job with headless Chromium fetches schedules and stores structured JSON in GCS",
+        },
+        {
+          title: "Workflow Orchestration",
+          description: "Cloud Workflows ensures sequential execution of scraping → syncing with retry/error handling",
+        },
+        {
+          title: "Sync Job",
+          description: "Cloud Run Job reads JSON, retrieves OAuth tokens from Secret Manager, and updates Google Calendar events",
+        },
+        {
+          title: "Security & Observability",
+          description: "IAM roles restricted per service account, with centralized logs and alerts in Cloud Logging/Monitoring",
+        },
+      ],
+    },
+    impact: {
+      title: "Impact & Outcomes",
+      outcomes: [
+        {
+          metric: "Time Saved",
+          description: "Removed the need for manual calendar entry, saving ~1 hour per week per employee",
+        },
+        {
+          metric: "Reliability",
+          description: "Guaranteed fresh daily syncs with 99% success rate and structured error alerts",
+        },
+        {
+          metric: "V2 Ready",
+          description: "Blueprint supports multi-tenant users, per-user OAuth tokens, and scalable Pub/Sub pipelines",
+        },
+        {
+          metric: "Security",
+          description: "Secrets managed in Secret Manager with IAM least privilege and audit logging enabled",
+        },
+      ],
+    },
+    techStack: [
+      "Google Cloud Run",
+      "Cloud Workflows",
+      "Cloud Scheduler",
+      "GCS",
+      "Secret Manager",
+      "Firestore",
+      "Google Calendar API",
+      "Docker",
+      "Python",
+    ],
+    links: {
+      github: "https://github.com/example/work-schedule-sync",
+      demo: "https://demo.work-schedule-sync.com",
+      blog: "https://blog.example.com/work-schedule-sync",
+    },
+    icon: Calendar,
+    gradient: "from-chart-1/20 to-chart-2/20",
+    iconColor: "text-chart-1",
+  },
   "fake-shop-analytics": {
-    title: "Fake Shop Analytics",
+    title: "E-commerce Shop Analytics",
     tagline: "End-to-end analytics pipeline for customer engagement insights",
     description:
       "Enabled customer funnel and retention tracking for a fake e-commerce store, simulating a startup-grade analytics stack.",
@@ -203,13 +342,14 @@ const projects = {
 }
 
 interface ProjectPageProps {
-  params: {
+  params: Promise<{
     slug: string
-  }
+  }>
 }
 
-export default function ProjectPage({ params }: ProjectPageProps) {
-  const project = projects[params.slug as keyof typeof projects]
+export default async function ProjectPage({ params }: ProjectPageProps) {
+  const { slug } = await params
+  const project = projects[slug as keyof typeof projects]
 
   if (!project) {
     notFound()
@@ -308,6 +448,45 @@ export default function ProjectPage({ params }: ProjectPageProps) {
         </div>
       </section>
 
+      {/* Tableau Dashboard Section - Only for assembly-line-performance */}
+      {'tableauEmbedCode' in project && project.tableauEmbedCode && (
+        <section className="py-16 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold mb-4">Interactive Dashboard</h2>
+              <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+                Explore the live Tableau dashboard showcasing assembly line performance metrics, production KPIs, and operational insights.
+              </p>
+            </div>
+            <Card className="bg-card/60 backdrop-blur-sm border-border/20">
+              <CardContent className="p-6">
+                <TableauEmbed embedCode={project.tableauEmbedCode} />
+              </CardContent>
+            </Card>
+          </div>
+        </section>
+      )}
+
+      {/* Impact & Outcomes Section */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4">{project.impact.title}</h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {project.impact.outcomes.map((outcome, index) => (
+              <Card key={index} className="bg-card/60 backdrop-blur-sm border-border/20">
+                <CardContent className="p-6">
+                  <h3 className="font-semibold text-accent mb-2">{outcome.metric}</h3>
+                  <p className="text-muted-foreground">{outcome.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Solution Architecture Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
@@ -325,26 +504,6 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                   </div>
                   <h3 className="font-semibold mb-2">{step.title}</h3>
                   <p className="text-sm text-muted-foreground">{step.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Impact & Outcomes Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">{project.impact.title}</h2>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-6">
-            {project.impact.outcomes.map((outcome, index) => (
-              <Card key={index} className="bg-card/60 backdrop-blur-sm border-border/20">
-                <CardContent className="p-6">
-                  <h3 className="font-semibold text-accent mb-2">{outcome.metric}</h3>
-                  <p className="text-muted-foreground">{outcome.description}</p>
                 </CardContent>
               </Card>
             ))}
@@ -404,8 +563,9 @@ export function generateStaticParams() {
 }
 
 // Generate metadata for each project
-export function generateMetadata({ params }: ProjectPageProps) {
-  const project = projects[params.slug as keyof typeof projects]
+export async function generateMetadata({ params }: ProjectPageProps) {
+  const { slug } = await params
+  const project = projects[slug as keyof typeof projects]
 
   if (!project) {
     return {

@@ -3,11 +3,42 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { ImageCard, ImageCardImage, ImageCardContent } from "@/components/ImageCard"
 import { Badge } from "@/components/ui/badge"
-import { ArrowRight, Database, Zap, BarChart3, GitBranch, Globe, ExternalLink } from "lucide-react"
+import { ArrowRight, Database, Zap, BarChart3, GitBranch, Globe, ExternalLink, Calendar, TrendingUp } from "lucide-react"
 import Link from "next/link"
 import { ScrollAnimation } from "@/components/scroll-animation"
 
 const projects = [
+  {
+    id: "assembly-line-performance",
+    title: "Assembly Line Performance Dashboard",
+    description:
+      "Interactive Tableau dashboard tracking real-time manufacturing metrics, assembly line efficiency, and production performance.",
+    impact: "Enabled data-driven decision making for production optimization and resource allocation across assembly lines",
+    icon: TrendingUp,
+    gradient: "from-chart-5/20 to-chart-3/20",
+    iconColor: "text-chart-5",
+    tags: ["Tableau", "Data Visualization", "Manufacturing Analytics", "Performance Metrics", "Dashboard Design"],
+    links: {
+      github: "#",
+      demo: "#",
+    },
+  },
+  {
+    id: "work-schedule-sync",
+    title: "Work Schedule Sync",
+    description:
+      "Automated scraping of weekly shifts and syncing them to Google Calendar with GCP-native components.",
+    impact: "Eliminated manual schedule entry, ensured up-to-date shifts, and created a V2-ready multi-tenant blueprint",
+    icon: Calendar,
+    gradient: "from-chart-1/20 to-chart-2/20",
+    iconColor: "text-chart-1",
+    tags: ["GCP", "Cloud Run", "Cloud Workflows", "Google Calendar API", "Secret Manager"],
+    links: {
+      github: "#",
+      demo: "#",
+      blog: "#",
+    },
+  },
   {
     id: "shop-analytics",
     title: "Shop Analytics",
